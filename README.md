@@ -10,6 +10,11 @@
 * redux, redux-persist, redux-thunk
 * axios
 
+## Installation
+
+```
+npm i
+```
 ## Author
 
 **germancutraro**
