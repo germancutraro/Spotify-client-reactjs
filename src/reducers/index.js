@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import numberReducer from './numberReducer';
+import songs from './songsReducer';
 
 const rootReducer = combineReducers({
-  numberReducer
+  songs
 });
 
 export default rootReducer;
