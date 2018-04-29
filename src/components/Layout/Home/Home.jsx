@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Songs from '../../Songs/Songs';
+import NavBar from '../NavBar/NavBar';
 // Actions
 import { isSignIn, searchSong } from '../../../actions';
 // React and Redux
@@ -16,24 +17,24 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <input type="text" placeholder="Song..." value={this.state.song} onChange={e => this.setState({song: e.target.value})} />
-        <button onClick={ e => this.props.searchSong(this.state.song) }>Go!</button>
+        <NavBar 
+          inputValue={this.state.song}
+          onChangeHandler={e => this.setState({song: e.target.value})}
+          onClickHandler={e => this.props.searchSong(this.state.song)} 
+        />
         <Songs />
       </div>
     );
   }
 }
 
-// const mapStateToProps = () => {
-
-// };
-
+const mapStateToProps = state => ({ songs: state.songs });
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
     isSignIn,
     searchSong
-  }, dispatch)
+  }, dispatch);
 };
 
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { TrackHandler, Client } from 'spotify-sdk';
 
 const client = Client.instance;
@@ -54,7 +54,7 @@ const searchSong = songName => {
   return dispatch => {
     dispatch(startFetch());
     let track = new TrackHandler();
-    track.search(songName, { limit: 30 })
+    track.search(songName, { limit: 5 })
       .then(songs => {
         console.log(songs)
         dispatch(completeFetch(songs))

@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Song = () => {
+const Song = props => {
   return (
     <div className="Song">
-      <small>Song 1</small>
-      <small>Song 2</small>
-      <small>Song 3</small>
+     <ul>
+       <li>Song name: {props.song._name}</li>
+       <li>Artist: {props.song._artists[0].name}</li>
+       <li>Album name: {props.song._album.name}</li>
+       <li><img src={props.song._album.images[2].url} alt=""/></li>
+     </ul>
     </div>
     
   );
