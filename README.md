@@ -1,6 +1,6 @@
 # Spotify Client React.Js 
 
-🎧 🎵 Spotify song searcher using the Spotify API, React and Redux
+🎧 Spotify song searcher using the Spotify API, React and Redux 🎵
 
 ## Instalation
 
