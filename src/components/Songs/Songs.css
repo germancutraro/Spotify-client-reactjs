@@ -1,5 +1,25 @@
-.Song-Results {
-   background-color: red;
-   width: 50%;
+.song-results-wrapper{
+   width: 55%;
+   color: #fff;
    margin: 0 auto; 
+}
+
+.Song-Results li {
+
+  width: 100%;
+  font-size: 13px;
+}
+
+.Song-Results ul li {
+  padding: 20px;
+}
+
+ul {
+  border-bottom: 1px solid#282828;
+}
+
+.song-result-title {
+  font-size: 2rem;
+  padding: 3px 0 5px;
+  color: #fff;
 }

@@ -1,0 +1,13 @@
+.song-ul {
+  display: flex;
+  align-items: center;
+}
+
+.song-ul:hover {
+  background-color: #282828;
+  cursor: pointer;
+}
+
+.song-result-title {
+  padding: 2rem 1.2rem;
+}

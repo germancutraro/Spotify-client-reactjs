@@ -10,7 +10,7 @@
   height: 100%;
   align-items: center;
   margin-left: 2rem;
-  width: 70%;
+  width: 53%;
   margin: 0 auto;
 }
 
@@ -29,9 +29,12 @@
 }
 
 .spotify-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
   display: inline-block;
   color: #fff;
   margin-left: 10px;
   letter-spacing: 1px;
+  font-size: 20px;
 }
 

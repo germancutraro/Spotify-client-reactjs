@@ -17,3 +17,7 @@ a {
   text-decoration: none;
   color: #56B1F6;
 }
+
+ul {
+  list-style: none;
+}

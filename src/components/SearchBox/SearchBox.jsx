@@ -11,7 +11,7 @@ const SearchBox = ({ inputValue, onChangeHandler, onClickHandler}) => {
          value={inputValue} 
          onChange={onChangeHandler}
       />
-      <i className="fa fa-search" style={{color: '#fff', padding: '10px'}} onClick={onClickHandler}></i>
+      <i className="fa fa-search" style={{color: '#fff', padding: '10px'}} onClick={ onClickHandler }></i>
     </div>
   );
 }; 
