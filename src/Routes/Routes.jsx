@@ -1,16 +1,14 @@
-import React from 'react';
-// Views Component
-import Home from '../components/Layout/Home/Home';
+import React from "react";
 // Router
-import { Route, Router } from 'react-router'
+import { Route, Switch } from "react-router-dom";
+// Views Component
+import Home from "../components/Layout/Home/Home";
 
-const Routes = props => {
+const Routes = () => {
   return (
-    <Router history={ props.history }>
-      <div>
-        <Route exact path="/" component={ Home }/>
-      </div>
-  </Router>
+    <Switch>
+      <Route exact path="/" component={Home} />
+    </Switch>
   );
 };
 

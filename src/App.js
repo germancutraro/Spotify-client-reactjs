@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import Routes from './routes/Routes';
+import Routes from './Routes/Routes';
+import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Routes history={this.props.history} />
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
       </div>
     );
   }
