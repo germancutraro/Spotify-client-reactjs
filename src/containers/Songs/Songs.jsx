@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import SongItem from '../../components/SongItem/SongItem';
 import NavBar from '../../components/NavBar/NavBar';
 // redux
-import { getSongsStart, signIn } from './songsActions';
+import { getSongsStart } from './songsActions';
+import { signIn, getUserStart } from '../Auth/authActions';
 import { useSelector, useDispatch } from 'react-redux';
 // styles
 import {
@@ -20,6 +21,7 @@ const Songs = () => {
 
   useEffect(() => {
     dispatch(signIn());
+    dispatch(getUserStart());
   }, [dispatch]);
 
   const handleClick = () => dispatch(getSongsStart({ songName: searchValue }));
