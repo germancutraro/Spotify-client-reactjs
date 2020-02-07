@@ -1,19 +1,19 @@
 import React from 'react';
 import './SearchBox.css';
 
-const SearchBox = ({ inputValue, onChangeHandler, onClickHandler}) => {
+const SearchBox = ({ inputValue, onChangeHandler, onClickHandler }) => {
   return (
-    <div className="search-wrapper">
-      <input 
-         className="search_box" 
-         type="text" 
-         placeholder="Search..." 
-         value={inputValue} 
-         onChange={onChangeHandler}
+    <div className='search-wrapper'>
+      <input
+        className='search_box'
+        type='text'
+        placeholder='Search...'
+        value={inputValue}
+        onChange={onChangeHandler}
+        onKeyDown={e => (e.key === 'Enter' ? onClickHandler() : null)}
       />
-      <i className="fa fa-search" style={{color: '#fff', padding: '10px'}} onClick={ onClickHandler }></i>
     </div>
   );
-}; 
+};
 
-export default SearchBox;
+export default React.memo(SearchBox);

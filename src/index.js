@@ -6,18 +6,20 @@ import registerServiceWorker from './registerServiceWorker';
 
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
-
+import { PersistGate } from 'redux-persist/integration/react';
 import configureStore, { history, sagaMiddleware } from './store';
 import sagas from './sagas';
 
-const store = configureStore();
+const { persistor, store } = configureStore();
 sagaMiddleware.run(sagas);
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <App />
-    </ConnectedRouter>
+    <PersistGate loading={null} persistor={persistor}>
+      <ConnectedRouter history={history}>
+        <App />
+      </ConnectedRouter>
+    </PersistGate>
   </Provider>,
   document.getElementById('root')
 );
