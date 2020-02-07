@@ -1,4 +1,4 @@
-# Spotify Client React.Js 
+# Spotify Client React.Js
 
 🎧 Spotify song searcher using the Spotify API, React and Redux 🎵
 
@@ -22,8 +22,10 @@ npm start
 
 **germancutraro**
 
+made with [bauticutraro](https://github.com/bauticutraro)
+
 ## Why
 
-* Practice
-* React Lover
-* Music Lover
+- Practice
+- React Lover
+- Music Lover

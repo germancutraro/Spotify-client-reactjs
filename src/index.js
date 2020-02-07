@@ -1,41 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './containers/App/App';
 import registerServiceWorker from './registerServiceWorker';
 
-// Main Reducer
-import rootReducer from './reducers';
-// Redux
-import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
+import { ConnectedRouter } from 'connected-react-router';
 
-// redux-persist
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; 
-import { PersistGate } from 'redux-persist/integration/react';
+import configureStore, { history, sagaMiddleware } from './store';
+import sagas from './sagas';
 
-// history and middlewares
-const middlewares = [thunk];
-
-const persistConfig = {
-  key: 'root',
-  storage
-};
-
-// persist reducer
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-// store creation and persist
-const store = createStore(persistedReducer, applyMiddleware(...middlewares));
-const persistor = persistStore(store);
+const store = configureStore();
+sagaMiddleware.run(sagas);
 
 ReactDOM.render(
-  <Provider store={ store }>
-      <PersistGate loading= { null } persistor={ persistor }>
-        <App />
-      </PersistGate>
-  </Provider>, 
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
+  </Provider>,
   document.getElementById('root')
 );
+
 registerServiceWorker();
