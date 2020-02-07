@@ -8,16 +8,13 @@ import client from '../../utils/spotify';
 
 // LOGIN
 function* signIn() {
-  if (sessionStorage.token) {
-    yield (client.token = sessionStorage.token);
-  } else if (window.location.hash.split('&')[0].split('=')[1]) {
-    yield (sessionStorage.token = window.location.hash
-      .split('&')[0]
-      .split('=')[1]);
-    yield (client.token = sessionStorage.token);
-  } else {
-    yield client.login().then(url => (window.location.href = url));
-  }
+  if (!localStorage.getItem('token'))
+    yield client.login().then(url => {
+      window.location.href = url;
+      localStorage.token = window.location.hash.split('&')[0].split('=')[1];
+      client.token = localStorage.token;
+    });
+  else client.token = localStorage.getItem('token');
 }
 
 function* signInSaga() {
@@ -28,7 +25,7 @@ function* signInSaga() {
 function* getUser() {
   try {
     const user = yield services.getUser();
-    console.log('s', user);
+    console.log(user);
     if (user) yield put(actions.getUserSuccess({ user }));
   } catch (err) {
     yield put(actions.getUserFailure({ error: err.message }));

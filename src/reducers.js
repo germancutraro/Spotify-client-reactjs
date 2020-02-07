@@ -9,7 +9,8 @@ import songsReducer from './containers/Songs/songsReducer';
 
 const authPersistConfig = {
   key: 'auth',
-  storage
+  storage,
+  whitelist: ['user']
 };
 
 export default history =>

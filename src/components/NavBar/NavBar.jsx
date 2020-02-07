@@ -23,7 +23,7 @@ const NavBar = ({ searchValue, handleChange, handleClick }) => {
         </div>
 
         <div>
-          {user && (
+          {user && user.images && (
             <img
               src={user.images[0].url}
               alt=''
